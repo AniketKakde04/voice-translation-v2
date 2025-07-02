@@ -1,12 +1,12 @@
 # transcriber.py
-
+import torch
 import whisper
 from crypto_utils import encrypt_4digit_numbers
 import tempfile
 
+torch.set_num_threads(1)
 # Load model once at the top
 model = whisper.load_model("tiny")
-
 def transcribe_audio_bytes(audio_bytes: bytes) -> dict:
     # Save audio to a temporary file
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as temp_audio:
