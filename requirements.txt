@@ -4,7 +4,7 @@ python-dotenv
 requests
 google-generativeai
 gunicorn 
-whisper
+openai-whisper
 cryptography
 ffmpeg-python
 torch
