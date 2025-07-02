@@ -1,1 +1,11 @@
-
+services:
+  - type: web
+    name: whisper-transcriber
+    runtime: python
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: FERNET_KEY
+        value: ymF95L7Pv82R7yzvWyXdCmwnoIDfhs8shfUWfJF1OUQ=
