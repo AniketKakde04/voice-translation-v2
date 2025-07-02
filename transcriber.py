@@ -5,7 +5,7 @@ from crypto_utils import encrypt_4digit_numbers
 import tempfile
 
 # Load model once at the top
-model = whisper.load_model("base")
+model = whisper.load_model("tiny")
 
 def transcribe_audio_bytes(audio_bytes: bytes) -> dict:
     # Save audio to a temporary file
