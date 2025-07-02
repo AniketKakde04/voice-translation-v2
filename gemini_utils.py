@@ -1,21 +1,15 @@
 import google.generativeai as genai
-import base64
-
 import os
-from io import BytesIO
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-def transcribe_and_translate(audio_bytes: bytes) -> str:
+def send_to_gemini(text: str) -> str:
     model = genai.GenerativeModel("models/gemini-2.0-flash")
 
-    # Gemini expects audio in WAV or MP3 or OGG – use directly
-    response = model.generate_content([
-        "You are an AI assistant. Transcribe and translate the given Indian language audio into English.",
-        {
-            "mime_type": "audio/mp3",
-            "data": audio_bytes
-        }
-    ])
+    prompt = [
+        "You are an AI assistant.Translate, Transcibe and Respond helpfully to the following user message. Ignore or redact any encrypted content like [ENCRYPTED:...]",
+        text
+    ]
 
+    response = model.generate_content(prompt)
     return response.text.strip()
