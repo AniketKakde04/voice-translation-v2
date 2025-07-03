@@ -7,4 +7,4 @@ gunicorn
 openai-whisper
 cryptography
 ffmpeg-python
-torch
+torch # For smaller install size on CPU-only environments, consider specifying a CPU-only version, e.g., torch==2.0.1+cpu - see PyTorch website for current versions.
