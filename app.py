@@ -1,4 +1,5 @@
 import os
+import logging
 from flask import Flask, request
 from dotenv import load_dotenv
 from twilio.twiml.messaging_response import MessagingResponse
