@@ -4,10 +4,10 @@ import os
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def send_to_gemini(text: str) -> str:
-    model = genai.GenerativeModel("models/gemini-2.0-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash") # Updated model name
 
     prompt = [
-        "You are an AI assistant.Translate, Transcibe and Respond helpfully to the following user message. Ignore or redact any encrypted content like [ENCRYPTED:...]",
+        "You are an AI assistant. The following text is a transcription of a voice message. Please translate it to English and provide a helpful, concise response based on the content. Ignore or redact any encrypted content like [ENCRYPTED:...]. If the input is already in English, just provide a helpful response.",
         text
     ]
 
